@@ -1,0 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+html {
+    font-family: "Lucida Sans", sans-serif;
+}
+.header {
+    background-color: #5b32a8;
+    color: #ffffff;
+    padding: 12px;
+}
