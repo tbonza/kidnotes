@@ -4,9 +4,9 @@ Description=Baby Content Manager
 [Service]
 Environment=PATH=/usr/bin:/usr/local/bin
 Environment="ENV=prod" "RUN_SERVER=runserver"
-ExecStart=/var/www/kidnotes_api/dist/src/manage.js $RUN_SERVER
+ExecStart=/var/www/kidnotes_api/manage.js $RUN_SERVER
 Restart=always
-WorkingDirectory=/var/www/kidnotes_api/dist
+WorkingDirectory=/var/www/kidnotes_api
 
 [Install]
 WantedBy=multi-user.target
