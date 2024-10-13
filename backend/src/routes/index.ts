@@ -1,7 +1,5 @@
-import imagesRouter from './images';
-import videoRouter from './video';
+import mediaRouter from './media';
 
 export {
-  imagesRouter,
-  videoRouter,
+  mediaRouter,
 }

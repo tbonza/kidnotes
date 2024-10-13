@@ -2,10 +2,11 @@
 import express from 'express';
 import cors from 'cors';
 
+import { config } from './config';
 import { logger } from './services/logger';
-import { imagesRouter, videoRouter } from './routes';
+import { mediaRouter } from './routes';
 
-export const appMain() = () => {
+export const appMain = () => {
 
   const app = express();
 
@@ -13,13 +14,12 @@ export const appMain() = () => {
   app.use(cors());
 
   // API
-  const rootName = '/api';
-  app.use(`${routeName}/images`, imagesRouter);
-  app.use(`${routeName}/video`, videoRouter);
+  const apiRootName = '/api';
+  app.use(`${apiRootName}/media`, mediaRouter);
 
   // Get PORT from environment
   const { port } = config.env;
-  app.listen(port, ()) => {
+  app.listen(port, () => {
     logger.info(`Started server at port ${port}`);
   });
-}
+};
