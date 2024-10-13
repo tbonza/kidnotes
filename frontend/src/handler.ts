@@ -1,4 +1,5 @@
 
+const endpoint = "http://192.168.0.19/api/media/store";
 const form = document.getElementById("#userinfo") as HTMLFormElement; 
 
 async function sendData() {
@@ -6,7 +7,7 @@ async function sendData() {
   const formData = new FormData(form);
 
   try {
-    const response = await fetch("https://example.org/post", {
+    const response = await fetch(endpoint, {
       method: "POST",
       // Set the FormData instance as the request body
       body: formData,

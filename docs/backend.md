@@ -3,6 +3,7 @@
 This is intended to be run on Debian Linux on a Local Area Network (LAN). You
 may recall LAN parties, this is a similar idea.
 
+
 ## Configuring the Proxy
 
 Services sit behind HAProxy. There's an API service and a Web service for
@@ -76,4 +77,40 @@ backend static_backend
 	server static_server0 127.0.0.1:7070 check
 ```
 
+## Configuring User Services
 
+We need to add our backend api as a user service.
+
+### Baby Daemon
+
+```
+cp backend/contrib/init/systemd/babyd.service /etc/systemd/system
+```
+
+Reload the services (daemon)
+```
+systemctl daemon-reload
+```
+start the service
+```
+systemctl start babyd
+```
+you can enable the service if you want and also check the log files at this
+point.
+
+```
+journalctl -u babyd
+```
+
+### Network Daemons
+
+Once Baby Daemon is running, you will need to start the network daemons which
+are Apache and HAProxy in this case. They may already be running so I'll 
+encourage a restart.
+```
+# restart assuming they might be running/already enabled
+systemctl restart apache2
+systemctl restart haproxy
+# check the status if you want
+systemctl status haproxy
+```
