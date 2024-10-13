@@ -1,4 +1,5 @@
-const form = document.querySelector("#userinfo");
+
+const form = document.getElementById("#userinfo") as HTMLFormElement; 
 
 async function sendData() {
   // Associate the FormData object with the form element
