@@ -1,4 +1,5 @@
 import express, {Request, Response} from 'express';
+import { logger } from '../services/logger';
 
 const mediaRouter = express.Router();
 
@@ -10,6 +11,8 @@ mediaRouter.post('/store', async (req: Request, res: Response) => {
   const receipt = {
     message: `have a great day!`,
   }
+
+  logger.info('message received');
 
   res.status(200).json(receipt);
 });

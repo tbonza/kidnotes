@@ -14,10 +14,14 @@
       <p>Put them here</p>
     </div>
     <div>
-      <form id="userinfo">
-        <label for="files">Select files:</label>
-        <input type="file" id="files" name="files" multiple>
-        <input type="submit">
+      <form method="post" enctype="multipart/form-data" id="userinfo">
+        <div>
+        <label for="file">Select files:</label>
+        <input type="file" id="file" name="file" multiple>
+        </div>
+        <div>
+          <button>Submit</button>
+        </div>
       </form>
     </div>
     <script src="static/handler.js"></script>
