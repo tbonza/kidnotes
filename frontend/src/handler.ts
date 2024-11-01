@@ -1,6 +1,5 @@
-
+const form = document.querySelector("#userinfo") as HTMLFormElement;
 const endpoint = "http://192.168.0.19/api/media/store";
-const form = document.getElementById("#userinfo") as HTMLFormElement; 
 
 async function sendData() {
   // Associate the FormData object with the form element
@@ -23,3 +22,4 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   sendData();
 });
+
