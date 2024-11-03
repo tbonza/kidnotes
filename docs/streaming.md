@@ -73,11 +73,11 @@ app.listen(3000);
 ## Client-side:
 * **Chunk the file:** The file is split into smaller chunks for efficient transfer.
 * **Send chunks with Fetch:** Each chunk is sent to the server using the Fetch API as part of a FormData object.
-* **Include metadata:* Information like the filename, total file size, and current chunk index is sent along with each chunk.
+* **Include metadata:** Information like the filename, total file size, and current chunk index is sent along with each chunk.
 
 ## Server-side:
 * **Receive chunks:** The server receives the chunks and extracts the metadata.
-* **Write chunks to file:* The chunks are written to a file, either creating a new file or appending to an existing one based on the chunk index.
+* **Write chunks to file:** The chunks are written to a file, either creating a new file or appending to an existing one based on the chunk index.
 * **Handle completion:** Once all chunks are received, the server signals that the upload is complete.
 
 
