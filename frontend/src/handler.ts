@@ -4,6 +4,7 @@ const endpoint = "http://192.168.0.19/api/media/store";
 async function sendData() {
   // Associate the FormData object with the form element
   const formData = new FormData(form);
+  console.log(`form data ${formData}`);
 
   try {
     const response = await fetch(endpoint, {
@@ -22,4 +23,3 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
   sendData();
 });
-
