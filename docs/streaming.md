@@ -4,7 +4,12 @@ stream file from client with fetch, post to express nodejs without multer
 
 # Solution
 
+* [example\_client.ts](example_client.ts)
+* [example\_server.ts](example_server.ts)
+
+
 ## Client
+
 
 ```ts
 // Client-side (JavaScript)
