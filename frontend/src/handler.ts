@@ -1,3 +1,4 @@
+
 const form = document.querySelector("#userinfo") as HTMLFormElement;
 const endpoint = "http://192.168.0.19/api/media/store";
 
