@@ -15,6 +15,7 @@ async function chunkData(fileItem: File) {
     formData.append("fileType", fileItem.type);
     formData.append("fileSize", fileItem.size.toString()); 
     formData.append('currentChunk', (start / chunkSize).toString());
+    formData.append('currentBytes', start.toString());
     formData.append("fileLastModified", fileItem.lastModified.toString());
 
     try {
@@ -31,6 +32,15 @@ async function chunkData(fileItem: File) {
   }
 }
 
+async function logEvent(msg: String) {
+  const timeStr = new Date().toLocaleTimeString();
+
+  const logElem = document.querySelector("#fileUploadStatus");
+  if (logElem) {
+    logElem.innerHTML += `${timeStr}: ${msg}<br/>`;
+  }
+}
+
 async function sendData() {
   // Associate the FormData object with the form element
 
@@ -41,6 +51,8 @@ async function sendData() {
 
       const fileItem = fileInput.files[i];
       await chunkData(fileItem);
+      await logEvent(`Uploaded "${fileItem.name}"`);
+
     }
   }
 }
