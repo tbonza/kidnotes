@@ -5,17 +5,19 @@ const chunkSize = 1024 * 1024; // 1MB chunks
 
 async function chunkData(fileItem: File) {
 
-  for (let start = 0; start < fileItem.size; start += chunkSize) {
-
+  const nChunks = Math.ceil(fileItem.size / chunkSize);
+  let start = 0;
+  for (let current = 0; current < nChunks; current++) {
     const chunk = fileItem.slice(start, start + chunkSize);
+    start += chunkSize;
 
     const formData = new FormData();
     formData.append('chunk', chunk);
     formData.append("fileName", fileItem.name);
     formData.append("fileType", fileItem.type);
     formData.append("fileSize", fileItem.size.toString()); 
-    formData.append('currentChunk', (start / chunkSize).toString());
-    formData.append('currentBytes', start.toString());
+    formData.append("chunkIndex", current);
+    formData.append("totalChunks", nChunks);
     formData.append("fileLastModified", fileItem.lastModified.toString());
 
     try {
