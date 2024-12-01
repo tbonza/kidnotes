@@ -6,7 +6,7 @@ import {
 } from './db';
 
 test('CRUD user cache', async() => {
-  const cache = createEmptyUserCache();
+  const cache = await createEmptyUserCache();
 
   const userName = 'foo';
 
@@ -15,7 +15,7 @@ test('CRUD user cache', async() => {
   expect(cache.size).toBe(0);
 
   // Update user cache
-  cache.set(userName, createEmptyMediaCache()); 
+  cache.set(userName, await createEmptyMediaCache()); 
   expect(cache.has(userName)).toBe(true);
 
   const val = cache.get(userName);
@@ -33,10 +33,6 @@ test('CRUD user cache', async() => {
 
 });
 
-test('CRUD media cache', async() => {
-  // only difference here is expected to be that the media cache contains an
-  // array of chunks from streaming. media can be written to disk as it's 
-  // receieved then copied once validated.
+test('Validate upload before writing to disk', async() => {
 
-  expect(true).toBe(true); // TODO step media cache crud with empty array 
-});
+})

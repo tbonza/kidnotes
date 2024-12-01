@@ -1,6 +1,6 @@
 import express, {Request, Response} from 'express';
 import { logger } from '../services/logger';
-import { userCache } from '../services/db';
+//import { userCache } from '../services/db';
 
 const mediaRouter = express.Router();
 
