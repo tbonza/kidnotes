@@ -17,7 +17,7 @@ mediaRouter.post('/store', async (req: Request, res: Response) => {
 
   logger.info('message received');
 
-  res.status(200).json(receipt);
+  res.status(200).json(receipt); // TODO start wiring up and testing files
 });
 
 export default mediaRouter;

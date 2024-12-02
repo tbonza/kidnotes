@@ -1,8 +1,10 @@
 import {expect, test} from '@jest/globals';
+import * as fs from 'fs';
 
 import { 
   createEmptyUserCache,
   createEmptyMediaCache,
+  hashFile,
 } from './db';
 
 test('CRUD user cache', async() => {
@@ -33,6 +35,14 @@ test('CRUD user cache', async() => {
 
 });
 
-test('Validate upload before writing to disk', async() => {
+test('File hash exists', async() => {
 
+  const filePath = 'README.md';
+  expect(fs.existsSync(filePath)).toBe(true);
+
+  const hash = await hashFile(filePath);
+  expect(hash.length).toBe(64);
+
+  const checkHash = await hashFile(filePath);
+  expect(checkHash === hash).toBe(true);
 })
